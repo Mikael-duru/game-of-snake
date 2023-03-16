@@ -46,7 +46,7 @@ function nextTick(){
     setTimeout(() => {
       clearBoard();
       drawFood();
-      moveSnake();
+      updateSnake();
       drawSnake();
       checkGameOver();
       nextTick();
@@ -79,7 +79,8 @@ function drawFood(){
   gameContext.fillRect(foodX, foodY, unitSize, unitSize);
 };
 
-function moveSnake(){
+// snake grows when it eats
+function updateSnake(){
   const head = {
     x: snake[0].x + xVelocity,
     y: snake[0].y + yVelocity
